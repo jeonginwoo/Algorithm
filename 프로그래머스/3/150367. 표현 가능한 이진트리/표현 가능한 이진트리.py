@@ -3,8 +3,7 @@ def solution(numbers):
         if len(bin) == 1:
             return True
         now = len(bin) // 2
-        print(bin, now)
-        if bin[now] == '0':
+        if bin[now] == '0' and (bin[:now][now//2] == '1' or bin[now+1:][now//2] == '1'):
             return False
         return isTree(bin[:now]) and isTree(bin[now+1:])
     
@@ -19,5 +18,4 @@ def solution(numbers):
             answer.append(1)
         else:
             answer.append(0)
-        print("-===-")
     return answer
