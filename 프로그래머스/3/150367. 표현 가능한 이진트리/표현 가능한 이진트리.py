@@ -1,8 +1,9 @@
 def solution(numbers):
     def isTree(bin):
-        if len(bin) == 1 or int(bin) == 0:
+        if len(bin) == 1:
             return True
         now = len(bin) // 2
+        print(bin, now)
         if bin[now] == '0':
             return False
         return isTree(bin[:now]) and isTree(bin[now+1:])
@@ -18,4 +19,5 @@ def solution(numbers):
             answer.append(1)
         else:
             answer.append(0)
+        print("-===-")
     return answer
