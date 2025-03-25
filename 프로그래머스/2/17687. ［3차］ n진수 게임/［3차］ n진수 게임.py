@@ -2,7 +2,7 @@ def solution(n, t, m, p):
     def decimal_to_base(num, base):
         if num == 0:
             return "0"
-        digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        digits = "0123456789ABCDEF"
         result = ""
         while num:
             result = digits[num % base] + result
@@ -10,10 +10,10 @@ def solution(n, t, m, p):
         return result
     
     result = ''
-    for i in range(t*m):
+    max_len = p-1+m*t
+    i = 0
+    while len(result) < max_len:
         result += decimal_to_base(i, n)
+        i+=1
     
-    answer = ''
-    for i in range(p-1, p-1+m*t, m):
-        answer += result[i]
-    return answer
+    return result[p-1:max_len:m]
