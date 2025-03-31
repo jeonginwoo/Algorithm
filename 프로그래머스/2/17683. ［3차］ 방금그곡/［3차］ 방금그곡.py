@@ -2,21 +2,21 @@ import re
 
 def solution(m, musicinfos):
     
-    # def tab_to_s(tab:str)->str:
-    #     d = {"C#": "c", "D#": "d", "F#": "f", "G#": "g", "A#": "a"}
-    #     s = ""
-    #     for i in range(1, len(tab)):
-    #         if tab[i] == "#":
-    #             s += d[tab[i-1] + tab[i]]
-    #         elif tab[i-1] != "#":
-    #             s += tab[i-1]
-    #     if tab[-1] != "#":
-    #         s += tab[-1]
-    #     return s
+    def tab_to_s(tab:str)->str:
+        d = {"C#": "c", "D#": "d", "F#": "f", "G#": "g", "A#": "a", "B#": "b", "E#": "e"}
+        s = ""
+        for i in range(1, len(tab)):
+            if tab[i] == "#":
+                s += d[tab[i-1] + tab[i]]
+            elif tab[i-1] != "#":
+                s += tab[i-1]
+        if tab[-1] != "#":
+            s += tab[-1]
+        return s
     
-    def tab_to_s(tab: str) -> str:
-        d = {"C#": "c", "D#": "d", "F#": "f", "G#": "g", "A#": "a", "B#": "b"}
-        return re.sub(r"C#|D#|F#|G#|A#|B#", lambda x: d[x.group()], tab)
+    # def tab_to_s(tab: str) -> str:
+    #     d = {"C#": "c", "D#": "d", "F#": "f", "G#": "g", "A#": "a"}
+    #     return re.sub(r"C#|D#|F#|G#|A#", lambda x: d[x.group()], tab)
 
     def h_to_m(time: str) -> int:
         h, m = map(int, time.split(":"))
